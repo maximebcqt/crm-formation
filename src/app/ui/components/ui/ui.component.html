@@ -1,7 +1,15 @@
 <header class="fixed-top">
   <span (click)="toggle()">
     <!--span pour englober le ng-content pour y attribuer la fonction toggle-->
-    <ng-content select=".tr-btn"></ng-content>
+    <ng-container *ngIf="close;then contenuOK else contenuKO"></ng-container>
+    <ng-template #contenuOK>
+      <ng-content select=".tr-open"></ng-content>
+    </ng-template>
+    <ng-template #contenuKO>
+      <ng-content select=".tr-close"></ng-content>
+    </ng-template>
+
+
   </span>
   <ng-content select=".tr-header"></ng-content>
 </header>
