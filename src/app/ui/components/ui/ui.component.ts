@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-ui',
   templateUrl: './ui.component.html',
-  styleUrls: ['./ui.component.scss']
+  styleUrls: ['./ui.component.scss'],
 })
 export class UiComponent implements OnInit {
+  public close: boolean = true;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  public toggle(): void {
+    this.close = !this.close;
   }
-
 }
