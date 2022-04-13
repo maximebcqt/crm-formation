@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class OrdersService {
   private urlApi: string = environment.urlApi;
+  //observable froid
   public collection$: Observable<Order[]>;
 
   constructor(private httpClient: HttpClient) {
