@@ -7,6 +7,8 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./view-list-orders.component.scss'],
 })
 export class ViewListOrdersComponent implements OnInit {
+  public myTitle: string = 'titre list order';
+
   constructor(private ordersService: OrdersService) {
     this.ordersService.collection$.subscribe((dataRecup) =>
       console.log(dataRecup)
