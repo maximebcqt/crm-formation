@@ -1,2 +1,7 @@
 <p>view-list-orders works!</p>
-<app-template-full-width [title]="myTitle"></app-template-full-width>
+<app-template-full-width [title]="myTitle">
+  <button (click)="changeTitle()">
+    changer titre
+  </button>
+  <app-table-light [collections]="collections" [headers]="headers"></app-table-light>
+</app-template-full-width>

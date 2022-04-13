@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let collection of collections">
+      <td>{{collection.typePresta}}</td>
+      <td>{{collection.client}}</td>
+      <td>{{collection.ngJours}}</td>
+      <td>{{collection.tjm}}</td>
+      <td>TOTAL HT</td>
+      <td>TOTAL TTC</td>
+      <td>{{collection.state}}</td>
+
+    </tr>
+  </tbody>
+</table>
