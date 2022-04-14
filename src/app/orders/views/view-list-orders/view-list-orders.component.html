@@ -1,8 +1,7 @@
-<p>view-list-orders works!</p>
 <app-template-full-width [title]="myTitle">
-  <button (click)="changeTitle()">
+  <!--<button (click)="changeTitle()">
     changer titre
-  </button>
+  </button>-->
   <app-table-light *ngIf="collections | async as collections" [headers]="headers">
     <tr *ngFor="let collection of collections">
       <td>{{collection.typePresta | uppercase}}</td>
@@ -17,9 +16,7 @@
           <option *ngFor="let state of states" [value]="state" [selected]="state === collection.state">
             {{state}}
           </option>
-
         </select>
-
       </td>
     </tr>
   </app-table-light>

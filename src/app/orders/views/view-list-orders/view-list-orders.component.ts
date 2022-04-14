@@ -10,7 +10,7 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./view-list-orders.component.scss'],
 })
 export class ViewListOrdersComponent implements OnInit {
-  public myTitle: string = 'titre list order';
+  public myTitle: string = 'Ma liste d orders ';
   public headers: string[] = [
     'Type',
     'Client',
