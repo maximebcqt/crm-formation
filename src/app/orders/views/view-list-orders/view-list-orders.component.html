@@ -3,5 +3,25 @@
   <button (click)="changeTitle()">
     changer titre
   </button>
-  <app-table-light [collections]="collections" [headers]="headers"></app-table-light>
+  <app-table-light *ngIf="collections | async as collections" [headers]="headers">
+    <tr *ngFor="let collection of collections">
+      <td>{{collection.typePresta | uppercase}}</td>
+      <td>{{collection.client}}</td>
+      <td>{{collection.nbJours}}</td>
+      <td>{{collection.tjmHt | currency}}</td>
+      <td>{{collection.nbJours | total: collection.tjmHt | currency}}</td>
+      <td>{{collection.nbJours | total: collection.tjmHt : collection.tva | currency}}</td>
+      <td [appState]="collection.state">
+        <!--comme ca des qu on est dans la boucle on recup la valeur du state dans le td -->
+        <select (change)="changeState(collection,$event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === collection.state">
+            {{state}}
+          </option>
+
+        </select>
+
+      </td>
+    </tr>
+  </app-table-light>
+  <app-btn label="add order" route="add"></app-btn>
 </app-template-full-width>

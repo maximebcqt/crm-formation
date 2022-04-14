@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +22,9 @@ export class AppComponent {
   //observable chaud
   public sub$: Subject<any> = new Subject<any>();
   public behav$: BehaviorSubject<any> = new BehaviorSubject<any>('totoo');
+
+  public subs: Subscription;
+
   constructor() {
     this.title2 = 'titre2';
 
@@ -37,7 +40,13 @@ export class AppComponent {
     // du coup on va avoir afficher toto2
     this.behav$.subscribe((data) => console.log(data));
     this.behav$.next('toto4');
+
+    this.subs = this.obs$.subscribe((data) => console.log(data));
     //du coup la on aura afficher toto 2 et toto3
     // par contre si en dessous on re ajoute un subscribe on aura 2 toto3
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }
