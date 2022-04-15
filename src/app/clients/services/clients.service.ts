@@ -30,4 +30,8 @@ export class ClientsService {
       item
     );
   }
+
+  public add(item: Client): Observable<Client> {
+    return this.httpClient.post<Client>(`${this.urlApi}/clients`, item);
+  }
 }

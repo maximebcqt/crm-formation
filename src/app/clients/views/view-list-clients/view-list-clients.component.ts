@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateClient } from 'src/app/core/enums/state-client';
 import { Client } from 'src/app/core/models/client';
@@ -19,8 +20,8 @@ export class ViewListClientsComponent implements OnInit {
   ];
   public clients!: Observable<Client[]>;
   public states: string[] = Object.values(StateClient);
-
-  constructor(private ClientsService: ClientsService) {
+  public aujourdhui: Date= new Date;
+  constructor(private ClientsService: ClientsService, private router: Router) {
     this.clients = this.ClientsService.collection$;
   }
   public changeTitle() {
@@ -36,4 +37,9 @@ export class ViewListClientsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  public action(item: Client) {
+    this.ClientsService.add(item).subscribe();
+    this.router.navigate(['client']);
+  }
 }

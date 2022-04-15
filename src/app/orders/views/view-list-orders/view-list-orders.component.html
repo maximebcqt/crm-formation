@@ -18,6 +18,18 @@
           </option>
         </select>
       </td>
+      <td>
+
+        <span (click)="editer(collection.id)">
+          <app-icon-edit class="tr-edit"></app-icon-edit>
+        </span>
+      </td>
+      <td>
+
+        <span (click)="delete(collection)">
+          <app-icon-delete class="tr-delete"></app-icon-delete>
+        </span>
+      </td>
     </tr>
   </app-table-light>
   <app-btn label="add order" route="add"></app-btn>

@@ -16,7 +16,7 @@
       "tva": 20,
       "state": "OPTION",
       "typePresta": "formation",
-      "client": "Modis",
+      "client": "Modisss",
       "comment": "fgddhf",
       "id": 2
     },
@@ -34,20 +34,20 @@
       "tjmHt": 1200,
       "nbJours": 12,
       "tva": 20,
-      "state": "OPTION",
+      "state": "CONFIRMED",
       "typePresta": "formation",
       "client": "Capgemini",
       "comment": "Merci capgemini pour les 14k",
       "id": 4
     },
     {
-      "tjmHt": 1200,
-      "nbJours": 8,
+      "tjmHt": 2000,
+      "nbJours": 1,
       "tva": 20,
-      "state": "CANCELED",
-      "typePresta": "coaching",
-      "client": "Modis",
-      "comment": "Merci Modis pour les 10k",
+      "state": "OPTION",
+      "typePresta": "frmeokg",
+      "client": "lifr",
+      "comment": "aaz",
       "id": 5
     }
   ],
@@ -75,6 +75,14 @@
       "name": "modis",
       "comment": "rsger",
       "id": 3
+    },
+    {
+      "totalCaHt": 1200,
+      "tva": 20,
+      "state": "INACTIVE",
+      "name": "vcrs",
+      "comment": "aaa",
+      "id": 4
     }
   ]
 }

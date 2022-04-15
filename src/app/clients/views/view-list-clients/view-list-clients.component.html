@@ -2,6 +2,7 @@
   <!--<button (click)="changeTitle()">
     changer titre
   </button>-->
+  test: {{aujourdhui | date:"MM/dd/yy"}}
   <app-table-light *ngIf="clients | async as clients" [headers]="headers">
     <tr *ngFor="let client of clients">
       <td>{{client.name | uppercase}}</td>

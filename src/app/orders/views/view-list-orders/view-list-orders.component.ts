@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
@@ -23,7 +24,7 @@ export class ViewListOrdersComponent implements OnInit {
   public collections!: Observable<Order[]>;
   public states: string[] = Object.values(StateOrder);
 
-  constructor(private ordersService: OrdersService) {
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.collections = this.ordersService.collection$;
   }
   public changeTitle() {
@@ -39,4 +40,22 @@ export class ViewListOrdersComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  public editer(id: number) {
+    this.router.navigate([`orders/edit/${id}`]);
+  }
+
+  public delete(order: Order) {
+    console.log('avant dele');
+    this.ordersService.delete(order.id).subscribe(
+      () =>
+        // unsubscribe puis re sub pour maj car c est un observable froid ici
+        (this.collections = this.ordersService.collection$)
+    );
+    console.log('apres dele');
+  }
+  public action(item: Order) {
+    this.ordersService.add(item).subscribe();
+    this.router.navigate(['orders']);
+  }
 }
